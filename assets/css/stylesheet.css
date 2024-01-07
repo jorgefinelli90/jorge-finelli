@@ -1,0 +1,614 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #232323;
+    font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+* {
+    text-decoration: none;
+}
+
+.fixed-header {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.fixed-header.scrolled {
+    color: white;
+}
+
+
+.group-header {
+    height: 75px;
+}
+
+.top-header {
+    position: fixed;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header-sec {
+    position: fixed;
+    top: 2px;
+    right: 20px;
+}
+
+.header-sec p {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.header-sec p:hover {
+    font-weight: 500;
+}
+
+.header-sec p+p {
+    margin-top: -20px;
+}
+
+
+
+.logo {
+    position: fixed;
+    left: 85px;
+    top: 9px;
+    z-index: 100;
+}
+
+
+.logo-text {
+    font-size: 40px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin: 0;
+}
+
+#menuToggle {
+    display: block;
+    position: relative;
+    top: 30px;
+    left: 30px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle a {
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+#menuToggle a:hover {
+    color: rgb(26, 26, 26);
+    font-weight: 400;
+}
+
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
+
+    -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: #232323;
+    border-radius: 3px;
+
+    z-index: 1;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+    position: absolute;
+    width: 350px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#menu li {
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked~ul {
+    transform: none;
+}
+
+
+#imageContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    max-width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: none;
+}
+
+#imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#menu a:hover+#imageContainer,
+#imageContainer:hover {
+    display: block;
+}
+
+/* imagenes hover*/
+
+
+.menu-image {
+    max-width: 150px;
+    display: none;
+    position: absolute;
+    top: 127px;
+    right: 20px;
+    transition: opacity 0.5s ease;
+    /* Agrega una transición para el efecto fade */
+}
+
+#menu li:hover .menu-image {
+    display: block;
+    opacity: 1;
+    /* Hace que la imagen sea visible con un efecto fade */
+}
+
+.main-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+}
+
+.mp2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(33.3%, 1fr));
+}
+
+/* Media query para estilos móviles */
+@media only screen and (max-width: 600px) {
+    .menu-image {
+        max-width: 154px;
+        top: 178px;
+        right: 68px;
+        transition: opacity 1.5s ease;
+    }
+
+    .logo-text {
+        font-size: 30px;
+        font-family: "proxima-nova", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        margin: 0;
+        position: absolute;
+        top: 10px;
+        left: 0px;
+    }
+
+    .banner-home {
+        background-image: url(/assets/img/_DSF8798.jpg);
+        background-size: cover;
+        background-position-x: 32%;
+        background-position-y: 60%;
+    }
+
+    .buscador {
+        display: none;
+    }
+
+    .main-products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    }
+
+}
+
+
+
+#menu li:hover .menu-image {
+    display: block;
+}
+
+
+
+
+
+/* estilos de buscador */
+
+form.search-container {
+    position: fixed;
+    top: 0;
+    right: 55px;
+    margin: 0.95%;
+}
+
+.search-box {
+    transition: width 0.6s, border-radius 0.6s, background 0.6s, box-shadow 0.6s;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: rgb(235, 235, 235);
+}
+
+.search-box+label .search-icon {
+    color: black;
+}
+
+.search-box:hover {
+    color: white;
+    background: rgb(200, 200, 200);
+    box-shadow: 0 0 0 5px rgb(61, 71, 82);
+}
+
+.search-box:hover+label .search-icon {
+    color: white;
+}
+
+.search-box:focus {
+    transition: width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding-left: 15px;
+    cursor: text;
+    width: 300px;
+    border-radius: auto;
+    background: rgb(235, 235, 235);
+    color: black;
+}
+
+.search-box:focus+label .search-icon {
+    color: black;
+}
+
+.search-box:not(:focus) {
+    text-indent: -5000px;
+}
+
+#search-submit {
+    position: relative;
+    left: -5000px;
+}
+
+.search-icon {
+    position: relative;
+    left: -30px;
+    color: white;
+    cursor: pointer;
+}
+
+.svg-search {
+    position: relative;
+    width: 25px;
+    top: 8px;
+    right: 40px;
+}
+
+/* fin estilo buscador */
+
+
+
+
+
+.banner-home {
+    height: 100vh;
+    background-image: url(/assets/img/_DSF8798.jpg);
+    background-size: cover;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    transition: transform 0.3s;
+}
+
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.card:hover img {
+    filter: brightness(95%);
+}
+
+
+.info-prod {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name-prod {
+    font-size: 18px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.price-prod {
+    font-size: 18px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+}
+
+.info-prod p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+
+
+/* Inicialmente, oculta price-prod y establece una transición suave */
+.price-prod {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Muestra price-prod y oculta name-prod solo en la tarjeta actual cuando se hace hover en el contenedor principal */
+.info-prod:hover>.name-prod {
+    opacity: 0;
+}
+
+.info-prod:hover>.price-prod {
+    opacity: 1;
+    position: absolute;
+    left: 5px;
+}
+
+
+
+
+.color-picker {
+    display: flex;
+}
+
+.color-cp {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid 1px #1f1f1f5e52;
+    margin: 2px;
+}
+
+.color-cp:hover {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid 1px #1f1f1f5e52;
+    box-shadow: 6px 6px 20px -1px #d5cbbd,
+        -6px -6px 20px -1px #ffffff;
+}
+
+.cp-1 {
+    background-color: rgb(216, 187, 149)
+}
+
+.cp-2 {
+    background-color: #D19B45;
+}
+
+.cp-3 {
+    background-color: #A87D38;
+}
+
+.cp-4 {
+    background-color: #57401D;
+}
+
+.cp-5 {
+    content: "+1";
+    color: #232323;
+    background-color: rgb(214, 214, 162)
+}
+
+.cp-5 p {
+    font-size: 12px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    margin: auto auto;
+}
+
+/* Calle */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+
+.bahamas-tittle {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 10px;
+}
+
+.v-bahamas {
+    text-align: right;
+}
+
+.bahamas-tittle-medium {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.bahamas-tittle-bold {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+    .bahamas-tittle {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .v-bahamas {
+        text-align: right;
+    }
+
+    .bahamas-img {
+        width: 49%;
+        margin-bottom: 20px;
+        text-decoration: none;
+    }
+
+    .img-ba24 {
+        width: 100%;
+    }
+}
+
+/* 
+Calle fin */
+
+footer {
+    display: flex;
+    background-color: #f8f5f5;
+    height: 230px;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #232323;
+    font-size: 15px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+}
+
+
+footer p {
+    text-decoration: none;
+    color: #232323;
+    font-size: 15px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+}
