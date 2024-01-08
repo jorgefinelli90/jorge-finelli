@@ -466,7 +466,7 @@ form.search-container {
 }
 
 .name-prod {
-    font-size: 18px;
+    font-size: 13px;
     font-family: "proxima-nova", sans-serif;
     font-weight: 300;
     margin: 0;
@@ -511,16 +511,17 @@ form.search-container {
 }
 
 .color-cp {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     border: solid 1px #1f1f1f5e52;
     margin: 2px;
+    margin-right: 5px;
 }
 
 .color-cp:hover {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     border: solid 1px #1f1f1f5e52;
     box-shadow: 6px 6px 20px -1px #d5cbbd,
@@ -550,7 +551,7 @@ form.search-container {
 }
 
 .cp-5 p {
-    font-size: 12px;
+    font-size: 10px;
     font-family: "proxima-nova", sans-serif;
     font-weight: 300;
     margin: auto auto;
