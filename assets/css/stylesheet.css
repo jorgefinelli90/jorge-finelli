@@ -315,8 +315,14 @@ header {
         margin-top: 150px;
     }
 
-    .agnes{
-        display: none; 
+    .agnes {
+        display: none;
+    }
+
+    .header-sec {
+        position: fixed;
+        top: 2px;
+        left: 55%;
     }
 
 
