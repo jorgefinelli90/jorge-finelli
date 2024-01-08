@@ -296,6 +296,30 @@ header {
         display: none !important;
     }
 
+
+
+
+
+
+    footer {
+        display: flex;
+        background-color: #f8f5f5;
+        height: 242px;
+        width: 100%;
+        align-items: flex-start !important;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .footer-section:first-child {
+        margin-top: 150px;
+    }
+
+    .agnes{
+        display: none; 
+    }
+
+
 }
 
 
