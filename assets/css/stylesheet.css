@@ -702,3 +702,43 @@ footer p {
 
 
 
+
+
+
+
+
+
+/* Estilos para los cuadrados */
+.image-sizes {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card:hover .image-sizes {
+    opacity: 1;
+}
+
+.size-square {
+    width: 20%;
+    height: 40px;
+    background-color: rgba(35, 35, 35, 0.7); /* Fondo translúcido */
+    color: #fff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    transition: background-color 0.3s; /* Transición para el cambio de color en hover */
+}
+
+.size-square:hover {
+    background-color: #000; /* Color negro en hover */
+}
+
+/* ... Tus estilos existentes ... */
+
