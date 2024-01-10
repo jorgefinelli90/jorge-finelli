@@ -236,7 +236,7 @@
             <div class="size-square">ME</div>
             <div class="size-square">LA</div>
             <div class="size-square">XL</div>
-        </div>
+          </div>
         </div>
         <div class="info-prod">
           <div class="name-prod">
@@ -486,7 +486,9 @@
       const sale24Carousel = document.querySelector('.sale24-carousel');
 
       function updateSale24Carousel() {
-        sale24Carousel.style.transform = `translateX(-${currentIndex * 30}%)`;
+        const slideWidth = getComputedStyle(document.querySelector('.sale24-slide')).width;
+        const translateValue = -currentIndex * parseFloat(slideWidth) / parseFloat(getComputedStyle(sale24Carousel).width) * 100;
+        sale24Carousel.style.transform = `translateX(${translateValue}%)`;
       }
 
       function nextSlide() {
@@ -498,6 +500,36 @@
         currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
         updateSale24Carousel();
       }
+
+      // Actualizar el desplazamiento al cambiar el tamaño de la ventana
+      window.addEventListener('resize', () => {
+        updateSale24Carousel();
+      });
+
+      // EventListener para controlar el desplazamiento táctil en dispositivos móviles
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      sale24Carousel.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+      });
+
+      sale24Carousel.addEventListener('touchend', (event) => {
+        touchEndX = event.changedTouches[0].clientX;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        const threshold = 90; // Umbral para determinar si el gesto es un desplazamiento
+
+        if (swipeDistance > threshold) {
+          prevSlide();
+        } else if (swipeDistance < -threshold) {
+          nextSlide();
+        }
+      }
+
     </script>
 
 

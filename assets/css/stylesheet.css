@@ -742,3 +742,54 @@ footer p {
 
 /* ... Tus estilos existentes ... */
 
+  
+  .sale24-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .sale24-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .sale24-slide {
+    flex: 0 0 30%;
+    background-color: #ddd;
+    margin: 0 5px;
+    position: relative;
+  }
+  
+  .sale24-img-stl {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .sale24-prev-btn,
+  .sale24-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .sale24-prev-btn {
+    left: 10px;
+  }
+  
+  .sale24-next-btn {
+    right: 10px;
+  }
+  
+  /* Ajuste para dispositivos móviles */
+  @media only screen and (max-width: 767px) {
+    .sale24-slide {
+      flex: 0 0 98%;
+    }
+  }
