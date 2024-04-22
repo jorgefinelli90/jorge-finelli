@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#7BB5E8">
     <link rel="stylesheet" href="https://use.typekit.net/msx1bns.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/stylesheet.css">
-    <title>En el Tren</title>
+    <link rel="stylesheet" href="/assets/css/stylesheet.css">
+    <title>En el Tren! - Resumen Diario</title>
   </head>
 
   <body>
@@ -22,7 +22,7 @@
         <!-- Menú desplegable -->
         <div id="myDropdown" class="menu-dropdown">
           <div class="dropdown-content">
-            <a href="./assets/pages/resumen.html" class="menu-item">&#8962; Resumen Diario</a>
+            <a href="/index.html" class="menu-item">&#8962; Home</a>
             <a href="#" class="menu-item">&#9871; Categorias</a>
             <a href="#" class="menu-item">&#10084; Mi Lista</a>
             <a href="#" class="menu-item">&#128100; Ideas</a>
@@ -31,6 +31,38 @@
       </div>
 
       <!-- Contenido aquí -->
+<h1>Clima Actual Basado en Tu Ubicación</h1>
+    <button onclick="obtenerUbicacionYMostrarClima()">Obtener Clima Local</button>
+    <p id="temperatura"></p>
+    <p id="estadoClima"></p>
+    <p id="humedad"></p>
+
+    <img class="img-alea" src="https://picsum.photos/600/" alt="Imagen aleatoria">
+
+    <h1>Información de la IP</h1>
+    <button onclick="obtenerDatosIP()">Obtener Datos de IP</button> <!-- Botón para disparar la consulta -->
+    <div id="ipInfo">
+        <p id="ip">IP: Esperando consulta...</p>
+        <p id="type">Type: </p>
+        <p id="continent">Continent: </p>
+        <p id="country">Country: </p>
+        <p id="city">City: </p>
+        <p id="latitude">Latitude: </p>
+        <p id="longitude">Longitude: </p>
+        <p id="asn">ASN: </p>
+        <p id="organisation">Organisation: </p>
+        <p id="currency">Currency: </p>
+        <p id="timezone">Time Zone: </p>
+    </div>
+
+
+    <h1>Buscador de Definiciones</h1>
+    <input type="text" id="wordInput" placeholder="Ingrese una palabra...">
+    <button onclick="buscarDefinicion()">Buscar</button>
+    <div id="definitionContainer"></div>
+
+
+
 
  <!--Contenido del modal       
       <div id="infoModal" class="modal">
@@ -113,6 +145,6 @@
     }
   </script>
   <script src="./assets/js/doc.js"></script>
-  <script src="./assets/js/resumen.js"></script>
+<script src="/assets/js/resumen.js"></script>
 
   </body>

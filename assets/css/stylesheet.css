@@ -1,618 +1,322 @@
-body {
+/* Restablece el margen y el padding por defecto */
+* {
     margin: 0;
     padding: 0;
-    color: #232323;
-    font-family: "Avenir Next", "Avenir", sans-serif;
+    box-sizing: border-box;
 }
 
-* {
+/* Estilo básico del body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Contenedor de la app */
+.app-container {
+    max-width: 380px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 20px;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+/* Encabezado */
+.app-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 2px solid #eaeaea;
+}
+
+/* Iconos de acción del encabezado */
+.header-action {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Título del encabezado */
+.app-title {
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+}
+
+/* Barra de navegación inferior */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    background: #f8f8f8;
+}
+
+/* Iconos de la barra de navegación */
+.nav-icon {
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Estilo de los íconos de navegación */
+.icon {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Contenedor del menú desplegable */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 58px;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Elementos del menú desplegable */
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ítems del menú */
+.menu-item {
+    padding: 12px 16px;
     text-decoration: none;
+    display: block;
+    color: black;
+    border-bottom: 1px solid #ddd;
 }
 
-.fixed-header {
-    background-color: transparent;
+/* Estilo para cuando se muestra el menú */
+.show {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    /* Se queda fijo en la pantalla */
+    z-index: 1000;
+    /* Se asegura de que esté sobre el resto del contenido */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Ancho completo */
+    height: 100%;
+    /* Altura completa */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Negro con opacidad */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    /* Agrega espacio alrededor del contenido para evitar que toque los bordes */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 500px;
+    /* Ancho máximo del contenido */
+    max-height: calc(100vh - 100px);
+    /* Altura máxima del contenido */
+    overflow-y: auto;
+    /* Permite desplazamiento vertical si el contenido es más largo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Necesario para posicionar el botón de cerrar */
+    border-radius: 10px;
+    /* Bordes redondeados */
+}
+
+/* El botón cerrar (x) */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    padding-bottom: 10px;
+}
+
+
+/* Reset básico para garantizar que el estilo sea consistente en diferentes navegadores */
+
+
+
+/* Estilos globales */
+.body-js {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #ccc;
+    background-color: #333;
+    padding: 20px;
+}
+
+/* Encabezado y navegación */
+
+
+/* Botones */
+.button {
+    background-color: #555;
+    /* Dark grey */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
     transition: background-color 0.3s ease;
 }
 
-.fixed-header.scrolled {
-    color: white;
+.button.secondary {
+    background-color: #666;
 }
 
-
-.group-header {
-    height: 75px;
+.button:hover {
+    background-color: #777;
 }
 
-.top-header {
-    position: fixed;
-}
-
-header {
+/* Tablas responsivas */
+table {
     width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+    border-collapse: collapse;
+    background-color: #222;
+    color: #ccc;
 }
 
-.header-sec {
-    position: fixed;
-    top: 2px;
-    right: 20px;
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #555;
 }
 
-.header-sec p {
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
+@media (max-width: 600px) {
 
-.header-sec p:hover {
-    font-weight: 500;
-}
-
-.header-sec p+p {
-    margin-top: -20px;
-}
-
-
-
-.logo {
-    position: fixed;
-    left: 85px;
-    top: 9px;
-    z-index: 100;
-}
-
-
-.logo-text {
-    font-size: 40px;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    margin: 0;
-}
-
-#menuToggle {
-    display: block;
-    position: relative;
-    top: 30px;
-    left: 30px;
-    z-index: 1;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-#menuToggle a {
-    text-decoration: none;
-    color: #232323;
-    transition: color 0.3s ease;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-#menuToggle a:hover {
-    color: rgb(26, 26, 26);
-    font-weight: 400;
-}
-
-
-#menuToggle input {
-    display: block;
-    width: 40px;
-    height: 32px;
-    position: absolute;
-    top: -7px;
-    left: -5px;
-
-    cursor: pointer;
-
-    opacity: 0;
-    /* hide this */
-    z-index: 2;
-    /* and place it over the hamburger */
-
-    -webkit-touch-callout: none;
-}
-
-/*
- * Just a quick hamburger
- */
-#menuToggle span {
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-
-    background: #232323;
-    border-radius: 3px;
-
-    z-index: 1;
-
-    transform-origin: 4px 0px;
-
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-        opacity 0.55s ease;
-}
-
-#menuToggle span:first-child {
-    transform-origin: 0% 0%;
-}
-
-#menuToggle span:nth-last-child(2) {
-    transform-origin: 0% 100%;
-}
-
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-#menuToggle input:checked~span {
-    opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
-}
-
-/*
- * But let's hide the middle one.
- */
-#menuToggle input:checked~span:nth-last-child(3) {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-/*
- * Ohyeah and the last one should go the other direction
- */
-#menuToggle input:checked~span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0, -1px);
-}
-
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-#menu {
-    position: absolute;
-    width: 350px;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-
-    background: #ededed;
-    list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-
-    transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
-
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-}
-
-#menu li {
-    padding: 10px 0;
-    font-size: 22px;
-}
-
-
-/*
- * And let's slide it in from the left
- */
-#menuToggle input:checked~ul {
-    transform: none;
-}
-
-
-#imageContainer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    max-width: 100px;
-    height: 100px;
-    overflow: hidden;
-    display: none;
-}
-
-#imageContainer img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-#menu a:hover+#imageContainer,
-#imageContainer:hover {
-    display: block;
-}
-
-/* imagenes hover*/
-
-
-.menu-image {
-    max-width: 150px;
-    display: none;
-    position: absolute;
-    top: 127px;
-    right: 20px;
-    transition: opacity 0.5s ease;
-    /* Agrega una transición para el efecto fade */
-}
-
-#menu li:hover .menu-image {
-    display: block;
-    opacity: 1;
-    /* Hace que la imagen sea visible con un efecto fade */
-}
-
-.main-products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
-}
-
-.mp2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(33.3%, 1fr));
-}
-
-/* Media query para estilos móviles */
-@media only screen and (max-width: 600px) {
-    .menu-image {
-        max-width: 154px;
-        top: 178px;
-        right: 68px;
-        transition: opacity 1.5s ease;
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
     }
 
-    .logo-text {
-        font-size: 30px;
-        font-family: "proxima-nova", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-        margin: 0;
+    thead tr {
         position: absolute;
-        top: 10px;
-        left: 0px;
+        top: -9999px;
+        left: -9999px;
     }
 
-    .banner-home {
-        background-image: url(/assets/img/_DSF8798.jpg);
-        background-size: cover;
-        background-position-x: 32%;
-        background-position-y: 60%;
+    tr {
+        border: 1px solid #444;
     }
 
-    .buscador {
-        display: none;
-    }
-
-    .main-products {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-    }
-
-    .color-picker {
-        display: none !important;
-    }
-
-}
-
-
-
-#menu li:hover .menu-image {
-    display: block;
-}
-
-
-
-
-
-/* estilos de buscador */
-
-form.search-container {
-    position: fixed;
-    top: 0;
-    right: 55px;
-    margin: 0.95%;
-}
-
-.search-box {
-    transition: width 0.6s, border-radius 0.6s, background 0.6s, box-shadow 0.6s;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    background: rgb(235, 235, 235);
-}
-
-.search-box+label .search-icon {
-    color: black;
-}
-
-.search-box:hover {
-    color: white;
-    background: rgb(200, 200, 200);
-    box-shadow: 0 0 0 5px rgb(61, 71, 82);
-}
-
-.search-box:hover+label .search-icon {
-    color: white;
-}
-
-.search-box:focus {
-    transition: width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    padding-left: 15px;
-    cursor: text;
-    width: 300px;
-    border-radius: auto;
-    background: rgb(235, 235, 235);
-    color: black;
-}
-
-.search-box:focus+label .search-icon {
-    color: black;
-}
-
-.search-box:not(:focus) {
-    text-indent: -5000px;
-}
-
-#search-submit {
-    position: relative;
-    left: -5000px;
-}
-
-.search-icon {
-    position: relative;
-    left: -30px;
-    color: white;
-    cursor: pointer;
-}
-
-.svg-search {
-    position: relative;
-    width: 25px;
-    top: 8px;
-    right: 40px;
-}
-
-/* fin estilo buscador */
-
-
-
-
-
-.banner-home {
-    height: 100vh;
-    background-image: url(https://maisonburgues.com.br/media/wysiwyg/3.jpg);
-    background-size: cover;
-}
-
-.card {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #ddd;
-    transition: transform 0.3s;
-}
-
-
-.card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.card .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card:hover .overlay {
-    opacity: 1;
-}
-
-.card:hover img {
-    filter: brightness(95%);
-}
-
-
-.info-prod {
-    display: flex;
-    justify-content: space-between;
-}
-
-.name-prod {
-    font-size: 18px;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 300;
-    margin: 0;
-    margin-left: 5px;
-}
-
-.price-prod {
-    font-size: 18px;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 300;
-}
-
-.info-prod p {
-    margin: 0;
-    margin-bottom: 5px;
-}
-
-
-
-/* Inicialmente, oculta price-prod y establece una transición suave */
-.price-prod {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Muestra price-prod y oculta name-prod solo en la tarjeta actual cuando se hace hover en el contenedor principal */
-.info-prod:hover>.name-prod {
-    opacity: 0;
-}
-
-.info-prod:hover>.price-prod {
-    opacity: 1;
-    position: absolute;
-    left: 5px;
-}
-
-
-
-
-.color-picker {
-    display: flex;
-}
-
-.color-cp {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: solid 1px #1f1f1f5e52;
-    margin: 2px;
-}
-
-.color-cp:hover {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: solid 1px #1f1f1f5e52;
-    box-shadow: 6px 6px 20px -1px #d5cbbd,
-        -6px -6px 20px -1px #ffffff;
-}
-
-.cp-1 {
-    background-color: rgb(216, 187, 149)
-}
-
-.cp-2 {
-    background-color: #D19B45;
-}
-
-.cp-3 {
-    background-color: #A87D38;
-}
-
-.cp-4 {
-    background-color: #57401D;
-}
-
-.cp-5 {
-    content: "+1";
-    color: #232323;
-    background-color: rgb(214, 214, 162)
-}
-
-.cp-5 p {
-    font-size: 12px;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 300;
-    margin: auto auto;
-}
-
-/* Calle */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
-
-.bahamas-tittle {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Oswald', sans-serif;
-    margin-bottom: 10px;
-}
-
-.v-bahamas {
-    text-align: right;
-}
-
-.bahamas-tittle-medium {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 300;
-}
-
-.bahamas-tittle-bold {
-    margin: 0;
-    font-size: 30px;
-    font-weight: 500;
-}
-
-@media only screen and (max-width: 600px) {
-    .bahamas-tittle {
-        display: flex;
-        justify-content: space-between;
-        font-family: 'Oswald', sans-serif;
-    }
-
-    .v-bahamas {
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #555;
+        position: relative;
+        padding-left: 50%;
         text-align: right;
     }
 
-    .bahamas-img {
-        width: 49%;
-        margin-bottom: 20px;
-        text-decoration: none;
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
     }
 
-    .img-ba24 {
+    /* Label the data */
+    td:nth-of-type(1):before {
+        content: "Column 1:";
+    }
+
+    td:nth-of-type(2):before {
+        content: "Column 2:";
+    }
+
+    td:nth-of-type(3):before {
+        content: "Column 3:";
+    }
+
+    td:nth-of-type(4):before {
+        content: "Column 4:";
+    }
+
+    td:nth-of-type(5):before {
+        content: "Column 5:";
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .app-header {
+        padding: 10px;
+    }
+
+    .button {
         width: 100%;
+        padding: 10px 0;
+    }
+
+    .menu-item,
+    .header-action {
+        font-size: 18px;
     }
 }
 
-/* 
-Calle fin */
-
-footer {
-    display: flex;
-    background-color: #f8f5f5;
-    height: 230px;
-    align-items: flex-end;
-    justify-content: space-around;
-}
 
 
-.footer-section {
-    display: flex;
-    flex-direction: column;
-}
-
-.social-icons {
-    display: flex;
-    flex-direction: column;
-}
-
-.social-icons a {
-    text-decoration: none;
-    color: #232323;
-    font-size: 15px;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    margin: 0;
-}
-
-
-footer p {
-    text-decoration: none;
-    color: #232323;
-    font-size: 15px;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    margin: 0;
+.img-alea{
+    width: 100%;
 }
