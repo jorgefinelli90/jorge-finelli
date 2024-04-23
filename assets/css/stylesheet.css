@@ -255,12 +255,323 @@ td {
         border: 1px solid #444;
     }
 
+<<<<<<< HEAD
     td {
         /* Behave  like a "row" */
         border: none;
         border-bottom: 1px solid #555;
         position: relative;
         padding-left: 50%;
+=======
+    .buscador {
+        display: none;
+    }
+
+    .main-products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    }
+
+    .color-picker {
+        display: none !important;
+    }
+
+
+
+
+
+
+    footer {
+        display: flex;
+        background-color: #f8f5f5;
+        height: 242px;
+        width: 100%;
+        align-items: flex-start !important;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .footer-section:first-child {
+        margin-top: 150px;
+    }
+
+    .agnes {
+        display: none;
+    }
+
+    .header-sec {
+        position: fixed;
+        top: 2px;
+        left: 55%;
+    }
+
+
+}
+
+
+
+#menu li:hover .menu-image {
+    display: block;
+}
+
+
+
+
+
+/* estilos de buscador */
+
+form.search-container {
+    position: fixed;
+    top: 0;
+    right: 55px;
+    margin: 0.95%;
+}
+
+.search-box {
+    transition: width 0.6s, border-radius 0.6s, background 0.6s, box-shadow 0.6s;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: rgb(235, 235, 235);
+}
+
+.search-box+label .search-icon {
+    color: black;
+}
+
+.search-box:hover {
+    color: white;
+    background: rgb(200, 200, 200);
+    box-shadow: 0 0 0 5px rgb(61, 71, 82);
+}
+
+.search-box:hover+label .search-icon {
+    color: white;
+}
+
+.search-box:focus {
+    transition: width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding-left: 15px;
+    cursor: text;
+    width: 300px;
+    border-radius: auto;
+    background: rgb(235, 235, 235);
+    color: black;
+}
+
+.search-box:focus+label .search-icon {
+    color: black;
+}
+
+.search-box:not(:focus) {
+    text-indent: -5000px;
+}
+
+#search-submit {
+    position: relative;
+    left: -5000px;
+}
+
+.search-icon {
+    position: relative;
+    left: -30px;
+    color: white;
+    cursor: pointer;
+}
+
+.svg-search {
+    position: relative;
+    width: 25px;
+    top: 8px;
+    right: 40px;
+}
+
+/* fin estilo buscador */
+
+
+
+
+
+.banner-home {
+    height: 100vh;
+    background-image: url(https://maisonburgues.com.br/media/wysiwyg/3.jpg);
+    background-size: cover;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    transition: transform 0.3s;
+}
+
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.card:hover img {
+    filter: brightness(95%);
+}
+
+
+.info-prod {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name-prod {
+    font-size: 13px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.price-prod {
+    font-size: 18px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+}
+
+.info-prod p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+
+
+/* Inicialmente, oculta price-prod y establece una transición suave */
+.price-prod {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Muestra price-prod y oculta name-prod solo en la tarjeta actual cuando se hace hover en el contenedor principal */
+.info-prod:hover>.name-prod {
+    opacity: 0;
+}
+
+.info-prod:hover>.price-prod {
+    opacity: 1;
+    position: absolute;
+    left: 5px;
+}
+
+
+
+
+.color-picker {
+    display: flex;
+}
+
+.color-cp {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: solid 1px #1f1f1f5e52;
+    margin: 2px;
+    margin-right: 5px;
+}
+
+.color-cp:hover {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: solid 1px #1f1f1f5e52;
+    box-shadow: 6px 6px 20px -1px #d5cbbd,
+        -6px -6px 20px -1px #ffffff;
+}
+
+.cp-1 {
+    background-color: rgb(216, 187, 149)
+}
+
+.cp-2 {
+    background-color: #D19B45;
+}
+
+.cp-3 {
+    background-color: #A87D38;
+}
+
+.cp-4 {
+    background-color: #57401D;
+}
+
+.cp-5 {
+    content: "+1";
+    color: #232323;
+    background-color: rgb(214, 214, 162)
+}
+
+.cp-5 p {
+    font-size: 10px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    margin: auto auto;
+}
+
+/* Calle */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+
+.bahamas-tittle {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 10px;
+}
+
+.v-bahamas {
+    text-align: right;
+}
+
+.bahamas-tittle-medium {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.bahamas-tittle-bold {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+    .bahamas-tittle {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .v-bahamas {
+>>>>>>> ed5153fa6d974da2aeb401f166928f4b0e347209
         text-align: right;
     }
 
@@ -317,6 +628,185 @@ td {
 
 
 
+<<<<<<< HEAD
 .img-alea{
     width: 100%;
 }
+=======
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #232323;
+    font-size: 15px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+}
+
+
+footer p {
+    text-decoration: none;
+    color: #232323;
+    font-size: 15px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+}
+
+
+/* estilos Slider */
+
+.sale24-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .sale24-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .sale24-slide {
+    flex: 0 0 30%;
+    background-color: #ddd;
+    margin: 0 5px;
+    position: relative;
+  }
+
+  .sale24-img-stl {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sale24-prev-btn,
+  .sale24-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .sale24-prev-btn {
+    left: 10px;
+  }
+
+  .sale24-next-btn {
+    right: 10px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para los cuadrados */
+.image-sizes {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card:hover .image-sizes {
+    opacity: 1;
+}
+
+.size-square {
+    width: 20%;
+    height: 40px;
+    background-color: rgba(35, 35, 35, 0.7); /* Fondo translúcido */
+    color: #fff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    transition: background-color 0.3s; /* Transición para el cambio de color en hover */
+}
+
+.size-square:hover {
+    background-color: #000; /* Color negro en hover */
+}
+
+/* ... Tus estilos existentes ... */
+
+  
+  .sale24-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .sale24-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .sale24-slide {
+    flex: 0 0 30%;
+    background-color: #ddd;
+    margin: 0 5px;
+    position: relative;
+  }
+  
+  .sale24-img-stl {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .sale24-prev-btn,
+  .sale24-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .sale24-prev-btn {
+    left: 10px;
+  }
+  
+  .sale24-next-btn {
+    right: 10px;
+  }
+  
+  /* Ajuste para dispositivos móviles */
+  @media only screen and (max-width: 767px) {
+    .sale24-slide {
+      flex: 0 0 98%;
+    }
+  }
+>>>>>>> ed5153fa6d974da2aeb401f166928f4b0e347209
